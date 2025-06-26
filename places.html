@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <title>สถานที่ท่องเที่ยว - เที่ยวอเมริกา นิวยอร์ก</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { background: #fff8ec; }
+        header { background: linear-gradient(90deg, #f7b267 60%, #f4845f 100%); border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; box-shadow: 0 4px 16px rgba(244,132,95,0.08);}
+        nav a { background: #fff3d6; color: #b05c0b;}
+        nav a:hover { background: #f7b267; color: #fff;}
+        main { background: #fffbe6;}
+        h1 { font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif; font-size: 2.5rem; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 12px;}
+        .burger-icon { width: 48px; height: 48px; vertical-align: middle;}
+        .card-list { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;}
+        .card { background: #fff3d6; border-radius: 24px; box-shadow: 0 2px 8px rgba(244,132,95,0.07); padding: 24px; flex: 1 1 260px; min-width: 240px; max-width: 300px; text-align: center;}
+        .card img { width: 100%; border-radius: 16px; margin-bottom: 12px;}
+        footer { background: #ffe1b0; color: #b05c0b;}
+    </style>
 </head>
 <body>
     <header>
-        <h1>สถานที่ท่องเที่ยว</h1>
+        <h1>
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger" class="burger-icon">
+            สถานที่ท่องเที่ยว
+        </h1>
         <nav>
             <a href="index.html">หน้าแรก</a>
             <a href="content.html">เนื้อหา</a>
@@ -34,10 +50,15 @@
                 <h3>ไทม์สแควร์</h3>
                 <p>จุดศูนย์กลางของความบันเทิงและแสงสี</p>
             </div>
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger" style="width:80px; margin-bottom:8px;">
+                <h3>ร้านเบอร์เกอร์แนะนำ</h3>
+                <p>ห้ามพลาด! ลิ้มลองเบอร์เกอร์อเมริกันแท้ๆ ที่นิวยอร์ก</p>
+            </div>
         </section>
     </main>
     <footer>
-        &copy; 2025 เที่ยวอเมริกา - นิวยอร์ก
+        &copy; 2025 เที่ยวอเมริกา - นิวยอร์ก | ธีมเบอร์เกอร์
     </footer>
 </body>
 </html>
