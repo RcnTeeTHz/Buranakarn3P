@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>โรงแรมและที่พัก - เที่ยวอเมริกา</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body { background: #fff8ec; }
+    header { background: linear-gradient(90deg, #f7b267 60%, #f4845f 100%); border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; box-shadow: 0 4px 16px rgba(244,132,95,0.08);}
+    nav a { background: #fff3d6; color: #b05c0b;}
+    nav a:hover { background: #f7b267; color: #fff;}
+    main { background: #fffbe6;}
+    h1 { font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif; font-size: 2.5rem; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 12px;}
+    .burger-icon { width: 48px; height: 48px; vertical-align: middle;}
+    .card-list { display: flex; flex-direction: column; gap: 24px; align-items: center;}
+    .card { background: #fff3d6; border-radius: 24px; box-shadow: 0 2px 8px rgba(244,132,95,0.07); padding: 24px; width: 100%; max-width: 400px; text-align: center;}
+    .card img { 
+        width: 100%; 
+        height: 200px;      
+        object-fit: cover;  
+        border-radius: 16px; 
+        margin-bottom: 12px;
+        background: #eee;
+    }
+    .hotel-btn {
+        display: inline-block;
+        padding: 10px 28px;
+        background: linear-gradient(90deg, #f7b267 60%, #f4845f 100%);
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        font-size: 1rem;
+        font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(244,132,95,0.13);
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        margin-top: 12px;
+        cursor: pointer;
+    }
+    .hotel-btn:hover {
+        background: #f4845f;
+        color: #fffbe6;
+        transform: translateY(-2px) scale(1.04);
+    }
+    footer { background: #ffe1b0; color: #b05c0b;}
+    </style>
+</head>
+<body>
+    <script>
+const burgerCount = 30;
+const screenW = window.innerWidth;
+const screenH = window.innerHeight;
+
+for(let i=0; i<burgerCount; i++) {
+    const burger = document.createElement('span');
+    burger.textContent = "🍔";
+    burger.style.position = "fixed";
+    burger.style.left = Math.random() * screenW + "px";
+    burger.style.top = (Math.random() * -screenH) + "px";
+    burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+    burger.style.zIndex = 9999;
+    burger.style.pointerEvents = "none";
+    burger.style.opacity = 0.85;
+    burger.style.userSelect = "none";
+    burger.style.transition = "top 0.2s";
+    document.body.appendChild(burger);
+
+    // สุ่มทิศทางและความเร็ว
+    let speed = Math.random() * 1.2 + 0.7;
+    let sway = Math.random() * 1.5 + 0.5;
+    let angle = Math.random() * 360;
+    let direction = Math.random() > 0.5 ? 1 : -1;
+    let leftBase = parseFloat(burger.style.left);
+
+    function fall() {
+        let top = parseFloat(burger.style.top);
+        angle += sway * direction;
+        burger.style.transform = `rotate(${angle}deg)`;
+        burger.style.left = (leftBase + Math.sin(top/40) * 40) + "px";
+        if(top < screenH + 60) {
+            burger.style.top = (top + speed) + "px";
+            requestAnimationFrame(fall);
+        } else {
+            burger.style.top = (Math.random() * -screenH) + "px";
+            leftBase = Math.random() * screenW;
+            burger.style.left = leftBase + "px";
+            burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+            requestAnimationFrame(fall);
+        }
+    }
+    fall();
+}
+</script>
+    <header>
+        <h1>
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger" class="burger-icon">
+            โรงแรมและที่พัก
+        </h1>
+        <nav>
+            <a href="index.html">หน้าแรก</a>
+            <a href="content.html">สถานที่ท่องเที่ยว</a>
+            <a href="hotel.html">โรงแรมและที่พัก</a>
+            <a href="author.html">จัดทำโดย</a>
+            <a href="teacher.html">ครูผู้สอน</a>
+        </nav>
+    </header>
+    <main>
+        ...
+<section class="card-list">
+    <div class="card">
+        <img src="Picture/nycmq-exterior-0166-hor-feat.webp" alt="Marriott Marquis">
+        <h3>New York Marriott Marquis</h3>
+        <p>โรงแรมหรูใจกลางไทม์สแควร์ บรรยากาศดี เหมาะสำหรับพักผ่อนและชมวิวเมือง</p>
+        <p>⭐️⭐️⭐️⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.marriott.com/en-us/hotels/nycmq-new-york-marriott-marquis/overview/" target="_blank" class="hotel-btn">เว็บไซต์โรงแรม</a>
+    </div>
+    <div class="card">
+        <img src="Picture/ac66e6a0.avif" alt="The Plaza Hotel">
+        <h3>The Plaza Hotel</h3>
+        <p>โรงแรมระดับตำนาน ใกล้ Central Park หรูหราและบริการระดับโลก</p>
+        <p>⭐️⭐️⭐️⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.theplazany.com/" target="_blank" class="hotel-btn">เว็บไซต์โรงแรม</a>
+    </div>
+    <div class="card">
+        <img src="Picture/448cd4c3.avif" alt="Pod Times Square">
+        <h3>Pod Times Square</h3>
+        <p>ที่พักราคาประหยัด ใจกลางเมือง เดินทางสะดวก เหมาะกับวัยรุ่น</p>
+        <p>⭐️⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.thepodhotel.com/pod-times-square/" target="_blank" class="hotel-btn">เว็บไซต์โรงแรม</a>
+    </div>
+    <div class="card">
+        <img src="Picture/NYC_Nicolas_Koening_N9_medium.jpg" alt="YOTEL New York">
+        <h3>YOTEL New York Times Square</h3>
+        <p>โรงแรมดีไซน์ล้ำสมัย ใกล้สถานีรถไฟและแหล่งท่องเที่ยว</p>
+        <p>⭐️⭐️⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.yotel.com/en/hotels/yotel-new-york" target="_blank" class="hotel-btn">เว็บไซต์โรงแรม</a>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80" alt="HI NYC Hostel">
+        <h3>HI NYC Hostel</h3>
+        <p>โฮสเทลบรรยากาศอบอุ่น ราคาประหยัด เหมาะกับนักเดินทางสายประหยัด</p>
+        <p>⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.hiusa.org/find-hostels/new-york/new-york-891-amsterdam-avenue" target="_blank" class="hotel-btn">เว็บไซต์โฮสเทล</a>
+    </div>
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=400&q=80" alt="The Standard High Line">
+        <h3>The Standard, High Line</h3>
+        <p>โรงแรมวิวแม่น้ำฮัดสัน ใกล้ย่าน Meatpacking District</p>
+        <p>⭐️⭐️⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.standardhotels.com/new-york/properties/high-line" target="_blank" class="hotel-btn">เว็บไซต์โรงแรม</a>
+    </div>
+    <div class="card">
+        <img src="Picture/good-story-rooftop-bar.jpg" alt="Arlo SoHo">
+        <h3>Arlo SoHo</h3>
+        <p>โรงแรมบูติกสุดชิค ใจกลางโซโห เดินทางสะดวก</p>
+        <p>⭐️⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.arlohotels.com/arlo-soho/" target="_blank" class="hotel-btn">เว็บไซต์โรงแรม</a>
+    </div>
+    <div class="card">
+        <img src="Picture/the-jane-hotel-courtesy-the-jane-hotel.jpg" alt="The Jane Hotel">
+        <h3>The Jane Hotel</h3>
+        <p>โรงแรมสไตล์วินเทจ ราคาประหยัด ใกล้ Hudson River Park</p>
+        <p>⭐️⭐️ เปิด 24 ชั่วโมง</p>
+        <a href="https://www.thejanehotel.com/" target="_blank" class="hotel-btn">เว็บไซต์โรงแรม</a>
+    </div>
+</section>
+        <section style="text-align:center; margin-top:32px;">
+            <a href="https://www.booking.com/city/us/new-york.th.html" target="_blank" class="hotel-btn">🌐 เว็บไซต์ไกด์โรงแรมในนิวยอร์ก (Booking.com)</a>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 เที่ยวอเมริกา | งานบูรณาการ
+    </footer>
+</body>

@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>เที่ยวอเมริกา - นิวยอร์ก</title>
+    <title>หน้าแรก - เที่ยวอเมริกา</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
@@ -46,6 +46,51 @@
     </style>
 </head>
 <body>
+    <script>
+const burgerCount = 30;
+const screenW = window.innerWidth;
+const screenH = window.innerHeight;
+
+for(let i=0; i<burgerCount; i++) {
+    const burger = document.createElement('span');
+    burger.textContent = "🍔";
+    burger.style.position = "fixed";
+    burger.style.left = Math.random() * screenW + "px";
+    burger.style.top = (Math.random() * -screenH) + "px";
+    burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+    burger.style.zIndex = 9999;
+    burger.style.pointerEvents = "none";
+    burger.style.opacity = 0.85;
+    burger.style.userSelect = "none";
+    burger.style.transition = "top 0.2s";
+    document.body.appendChild(burger);
+
+    // สุ่มทิศทางและความเร็ว
+    let speed = Math.random() * 1.2 + 0.7;
+    let sway = Math.random() * 1.5 + 0.5;
+    let angle = Math.random() * 360;
+    let direction = Math.random() > 0.5 ? 1 : -1;
+    let leftBase = parseFloat(burger.style.left);
+
+    function fall() {
+        let top = parseFloat(burger.style.top);
+        angle += sway * direction;
+        burger.style.transform = `rotate(${angle}deg)`;
+        burger.style.left = (leftBase + Math.sin(top/40) * 40) + "px";
+        if(top < screenH + 60) {
+            burger.style.top = (top + speed) + "px";
+            requestAnimationFrame(fall);
+        } else {
+            burger.style.top = (Math.random() * -screenH) + "px";
+            leftBase = Math.random() * screenW;
+            burger.style.left = leftBase + "px";
+            burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+            requestAnimationFrame(fall);
+        }
+    }
+    fall();
+}
+</script>
     <header>
         <h1>
             <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger" class="burger-icon">
@@ -53,9 +98,8 @@
         </h1>
         <nav>
             <a href="index.html">หน้าแรก</a>
-            <a href="content.html">เนื้อหา</a>
-            <a href="places.html">สถานที่ท่องเที่ยว</a>
-            <a href="about.html">เกี่ยวกับ</a>
+            <a href="content.html">สถานที่ท่องเที่ยว</a>
+            <a href="hotel.html">โรงแรมและที่พัก</a>
             <a href="author.html">จัดทำโดย</a>
             <a href="teacher.html">ครูผู้สอน</a>
         </nav>
@@ -63,12 +107,80 @@
     <main>
         <section>
             <h2>🍔 ยินดีต้อนรับ 🍔</h2>
-            <p>เว็บไซต์นี้จะแนะนำสถานที่ท่องเที่ยวและข้อมูลน่าสนใจเกี่ยวกับเมืองนิวยอร์ก ประเทศสหรัฐอเมริกา<br>
-            พร้อมแนะนำร้านเบอร์เกอร์เด็ดๆ ในสไตล์อเมริกัน!</p>
+            <p>เว็บไซต์นี้จะแนะนำสถานที่ท่องเที่ยวและข้อมูลน่าสนใจเกี่ยวกับ ประเทศสหรัฐอเมริกา !</p>
+        </section>
+    </main>
+    <main>
+        <section>
+            <h2>ประวัติความเป็นมาของสหรัฐอเมริกา</h2>
+            <p>สหรัฐอเมริกา หรือที่เรียกกันทั่วไปว่า "อเมริกา" เป็นประเทศที่มีความเป็นมาทางประวัติศาสตร์ที่ยาวนานและหลากหลาย วางรากฐานมาจากชนเผ่าพื้นเมืองอเมริกัน ก่อนจะมีการตั้งถิ่นฐานของชาวยุโรป</p>
+            <h2>ไทม์ไลน์</h2>
+            <li>ก่อน ค.ศ. 1492 – พื้นที่ทวีปอเมริกาเหนือมีชนเผ่าพื้นเมืองอาศัยอยู่มาหลายพันปี</li>
+            <li>ค.ศ. 1492 – คริสโตเฟอร์ โคลัมบัส เดินทางมาถึงทวีปอเมริกา นำสู่ยุคการล่าอาณานิคม</li>
+            <li>ศตวรรษที่ 17 – อังกฤษ ก่อตั้งอาณานิคม 13 แห่งทางฝั่งตะวันออก</li>
+            <li>ค.ศ. 1776 – สหรัฐอเมริกาประกาศเอกราชจากอังกฤษ (4 กรกฎาคม)</li>
+            <li>ค.ศ. 1789 – รัฐธรรมนูญฉบับแรกมีผลบังคับใช้ จอร์จ วอชิงตัน เป็นประธานาธิบดีคนแรก</li>
+            <li>ค.ศ. 1861–1865 – สงครามกลางเมืองระหว่างภาคเหนือ (Union) และภาคใต้ (Confederacy) เพื่อเลิกทาส</li>
+            <li>คริสต์ศตวรรษที่ 20 – สหรัฐฯ ก้าวขึ้นเป็นมหาอำนาจโลก โดยเฉพาะหลังสงครามโลกครั้งที่ 2</li>
+            <li>ปัจจุบัน – เป็นหนึ่งในประเทศที่มีอิทธิพลมากที่สุดในโลก ทั้งด้านเศรษฐกิจ การเมือง และวัฒนธรรม</li>
+        </section>
+    </main>
+    <main>
+        <section>
+            <h2>🍔 คำสั่งงานบูรณาการ 🍔</h2>
+            <div style="text-align:center;">
+                <iframe src="PDF/ใบงานบูรณาการ ปวส.2_13,16.pdf" width="80%" height="500px" style="border-radius: 24px; border: 2px solid #f7b267; box-shadow: 0 2px 12px rgba(244,132,95,0.18);"></iframe>
+                <br>
+                <a href="PDF/ใบงานบูรณาการ ปวส.2_13,16.pdf" target="_blank"
+   style="
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(90deg, #f7b267 60%, #f4845f 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    font-size: 1.15rem;
+    font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(244,132,95,0.13);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    margin-top: 20px;
+    cursor: pointer;
+   "
+   onmouseover="this.style.background='#f4845f';this.style.color='#fffbe6';this.style.transform='translateY(-2px) scale(1.04)'"
+   onmouseout="this.style.background='linear-gradient(90deg, #f7b267 60%, #f4845f 100%)';this.style.color='#fff';this.style.transform='none'"
+>
+    🔎 เปิดไฟล์ PDF เต็มจอ
+</a>
+<br>
+                <a href="https://snon.my.canva.site/practicereportform" target="_blank"
+   style="
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(90deg, #f4845f 60%, #f7b267 100%);
+    color: #fff;
+    border: none;
+    border-radius: 32px;
+    font-size: 1.15rem;
+    font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(244,132,95,0.13);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    margin-top: 16px;
+    cursor: pointer;
+   "
+   onmouseover="this.style.background='#f7b267';this.style.color='#fffbe6';this.style.transform='translateY(-2px) scale(1.04)'"
+   onmouseout="this.style.background='linear-gradient(90deg, #f4845f 60%, #f7b267 100%)';this.style.color='#fff';this.style.transform='none'"
+>
+    📝 กรอกข้อมูล Canvas
+</a>
+            </div>
         </section>
     </main>
     <footer>
-        &copy; 2025 เที่ยวอเมริกา - นิวยอร์ก | ธีมเบอร์เกอร์
+        &copy; 2025 เที่ยวอเมริกา | งานบูรณาการ
     </footer>
 </body>
 </html>

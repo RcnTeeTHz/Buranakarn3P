@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>ครูผู้สอน - เที่ยวอเมริกา นิวยอร์ก</title>
+    <title>ครูผู้สอน - เที่ยวอเมริกา</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body { background: #fff8ec; }
@@ -12,10 +10,65 @@
         main { background: #fffbe6;}
         h1 { font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif; font-size: 2.5rem; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 12px;}
         .burger-icon { width: 48px; height: 48px; vertical-align: middle;}
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%; /* โค้งมนเป็นวงกลม */
+            box-shadow: 0 2px 12px rgba(244,132,95,0.18);
+            display: block;
+            margin: 0 auto 16px auto;
+            border: 6px solid #fff3d6;
+        }
         footer { background: #ffe1b0; color: #b05c0b;}
     </style>
 </head>
 <body>
+    <script>
+const burgerCount = 30;
+const screenW = window.innerWidth;
+const screenH = window.innerHeight;
+
+for(let i=0; i<burgerCount; i++) {
+    const burger = document.createElement('span');
+    burger.textContent = "🍔";
+    burger.style.position = "fixed";
+    burger.style.left = Math.random() * screenW + "px";
+    burger.style.top = (Math.random() * -screenH) + "px";
+    burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+    burger.style.zIndex = 9999;
+    burger.style.pointerEvents = "none";
+    burger.style.opacity = 0.85;
+    burger.style.userSelect = "none";
+    burger.style.transition = "top 0.2s";
+    document.body.appendChild(burger);
+
+    // สุ่มทิศทางและความเร็ว
+    let speed = Math.random() * 1.2 + 0.7;
+    let sway = Math.random() * 1.5 + 0.5;
+    let angle = Math.random() * 360;
+    let direction = Math.random() > 0.5 ? 1 : -1;
+    let leftBase = parseFloat(burger.style.left);
+
+    function fall() {
+        let top = parseFloat(burger.style.top);
+        angle += sway * direction;
+        burger.style.transform = `rotate(${angle}deg)`;
+        burger.style.left = (leftBase + Math.sin(top/40) * 40) + "px";
+        if(top < screenH + 60) {
+            burger.style.top = (top + speed) + "px";
+            requestAnimationFrame(fall);
+        } else {
+            burger.style.top = (Math.random() * -screenH) + "px";
+            leftBase = Math.random() * screenW;
+            burger.style.left = leftBase + "px";
+            burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+            requestAnimationFrame(fall);
+        }
+    }
+    fall();
+}
+</script>
     <header>
         <h1>
             <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger" class="burger-icon">
@@ -23,9 +76,8 @@
         </h1>
         <nav>
             <a href="index.html">หน้าแรก</a>
-            <a href="content.html">เนื้อหา</a>
-            <a href="places.html">สถานที่ท่องเที่ยว</a>
-            <a href="about.html">เกี่ยวกับ</a>
+            <a href="content.html">สถานที่ท่องเที่ยว</a>
+            <a href="hotel.html">โรงแรมและที่พัก</a>
             <a href="author.html">จัดทำโดย</a>
             <a href="teacher.html">ครูผู้สอน</a>
         </nav>
@@ -33,10 +85,27 @@
     <main>
         <section>
             <h2>🍔 ครูผู้สอน</h2>
-            <p>ครูสุภาพร สอนดี<br>ครูประจำวิชาคอมพิวเตอร์</p>
+            <img src="Picture/อ.อธิฐาน.jpg" alt="อ.อธิฐาน" class="profile-img">
+            <p><center>อ.อธิฐาน โพธิ์ละเดา<br>ครูประจำวิชาเทคโนโลยีสารสนเทศ</center></p>
+        </section>
+    </main>
+    <main>
+        <section>
+            <img src="Picture/อ.อินทุอร.jpg" alt="อ.อินทุอร" class="profile-img">
+            <p><center>อ.อินทุอร เกทิพย์<br>ครูประจำวิชาเทคโนโลยีสารสนเทศ</center></p>
+        </section>
+    </main>
+    <main>
+        <section>
+            <img src="Picture/อ.ประภาดา.jpg" alt="อ.ประภาดา" class="profile-img">
+            <p><center>อ.ประภาดา นามกัง<br>ครูประจำวิชาเทคโนโลยีสารสนเทศ</center></p>
+        </section>
+    </main>
+    <main>
+        <section>
+            <img src="Picture/อ.สุภาภรณ์.jpg" alt="อ.สุภาภรณ์" class="profile-img">
+            <p><center>อ.สุภาภรณ์ ต่วนเครื่อ<br>ครูประจำวิชาเทคโนโลยีสารสนเทศ</center></p>
         </section>
     </main>
     <footer>
-        &copy; 2025 เที่ยวอเมริกา - นิวยอร์ก | ธีมเบอร์เกอร์
-    </footer>
-</body>
+        &copy; 2025 เที่ยวอเมริกา | งานบูรณาการ

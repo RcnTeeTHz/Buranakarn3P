@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>จัดทำโดย - เที่ยวอเมริกา นิวยอร์ก</title>
+    <title>จัดทำโดย - เที่ยวอเมริกา</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body { background: #fff8ec; }
@@ -12,10 +12,85 @@
         main { background: #fffbe6;}
         h1 { font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif; font-size: 2.5rem; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 12px;}
         .burger-icon { width: 48px; height: 48px; vertical-align: middle;}
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 2px 12px rgba(244,132,95,0.18);
+            display: block;
+            margin: 0 auto 16px auto;
+            border: 6px solid #fff3d6;
+        }
+        .burger-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            background: linear-gradient(90deg, #f7b267 60%, #f4845f 100%);
+            color: #fff;
+            border: none;
+            border-radius: 32px;
+            font-size: 1.1rem;
+            font-family: 'Prompt', 'Segoe UI', 'Noto Sans Thai', sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(244,132,95,0.13);
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 20px;
+        }
+        .burger-btn:hover {
+            background: #f4845f;
+            color: #fffbe6;
+            transform: translateY(-2px) scale(1.04);
+        }
         footer { background: #ffe1b0; color: #b05c0b;}
     </style>
 </head>
 <body>
+    <script>
+const burgerCount = 30;
+const screenW = window.innerWidth;
+const screenH = window.innerHeight;
+
+for(let i=0; i<burgerCount; i++) {
+    const burger = document.createElement('span');
+    burger.textContent = "🍔";
+    burger.style.position = "fixed";
+    burger.style.left = Math.random() * screenW + "px";
+    burger.style.top = (Math.random() * -screenH) + "px";
+    burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+    burger.style.zIndex = 9999;
+    burger.style.pointerEvents = "none";
+    burger.style.opacity = 0.85;
+    burger.style.userSelect = "none";
+    burger.style.transition = "top 0.2s";
+    document.body.appendChild(burger);
+
+    // สุ่มทิศทางและความเร็ว
+    let speed = Math.random() * 1.2 + 0.7;
+    let sway = Math.random() * 1.5 + 0.5;
+    let angle = Math.random() * 360;
+    let direction = Math.random() > 0.5 ? 1 : -1;
+    let leftBase = parseFloat(burger.style.left);
+
+    function fall() {
+        let top = parseFloat(burger.style.top);
+        angle += sway * direction;
+        burger.style.transform = `rotate(${angle}deg)`;
+        burger.style.left = (leftBase + Math.sin(top/40) * 40) + "px";
+        if(top < screenH + 60) {
+            burger.style.top = (top + speed) + "px";
+            requestAnimationFrame(fall);
+        } else {
+            burger.style.top = (Math.random() * -screenH) + "px";
+            leftBase = Math.random() * screenW;
+            burger.style.left = leftBase + "px";
+            burger.style.fontSize = (Math.random() * 32 + 32) + "px";
+            requestAnimationFrame(fall);
+        }
+    }
+    fall();
+}
+</script>
     <header>
         <h1>
             <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger" class="burger-icon">
@@ -23,9 +98,8 @@
         </h1>
         <nav>
             <a href="index.html">หน้าแรก</a>
-            <a href="content.html">เนื้อหา</a>
-            <a href="places.html">สถานที่ท่องเที่ยว</a>
-            <a href="about.html">เกี่ยวกับ</a>
+            <a href="content.html">สถานที่ท่องเที่ยว</a>
+            <a href="hotel.html">โรงแรมและที่พัก</a>
             <a href="author.html">จัดทำโดย</a>
             <a href="teacher.html">ครูผู้สอน</a>
         </nav>
@@ -33,11 +107,42 @@
     <main>
         <section>
             <h2>🍔 ผู้จัดทำ</h2>
-            <p>นายสมชาย ใจดี<br>นักเรียนชั้นมัธยมศึกษาปีที่ 6/1 โรงเรียนตัวอย่าง</p>
+            <img src="Picture/Guntee.jpg" alt="Guntee" class="profile-img">
+            <p style="text-align:center;">
+                นายกันต์ธีร์ จิระกิตติดุลย์<br>
+                นักศึกษาระดับชั้น ปวส.2/13
+            </p>
+            <div style="text-align:center;">
+                <a href="https://web.facebook.com/RKunTii/" target="_blank" class="burger-btn">ช่องทางการติดต่อ</a>
+            </div>
+        </section>
+    </main>
+    <main>
+        <section>
+            <img src="Picture/Teawa.png" alt="Teawa" class="profile-img">
+            <p style="text-align:center;">
+                นายเทวา อรุณศิริรักษ์<br>
+                นักศึกษาระดับชั้น ปวส.2/13
+            </p>
+            <div style="text-align:center;">
+                <a href="https://web.facebook.com/fuue.222222#/" target="_blank" class="burger-btn">ช่องทางการติดต่อ</a>
+            </div>
+        </section>
+    </main>
+    <main>
+        <section>
+            <img src="Picture/Sakkarin.jpg" alt="Sakkarin" class="profile-img">
+            <p style="text-align:center;">
+                นายศักรินทร์ นนกระโทก<br>
+                นักศึกษาระดับชั้น ปวส.2/13
+            </p>
+            <div style="text-align:center;">
+                <a href="https://web.facebook.com/bot.sakkarin.7#/" target="_blank" class="burger-btn">ช่องทางการติดต่อ</a>
+            </div>
         </section>
     </main>
     <footer>
-        &copy; 2025 เที่ยวอเมริกา - นิวยอร์ก | ธีมเบอร์เกอร์
+        &copy; 2025 เที่ยวอเมริกา | งานบูรณาการ
     </footer>
 </body>
 </html>
